@@ -197,6 +197,8 @@ public class Home extends AppCompatActivity
                                                     public void onClick(View view, int position, boolean isLongClick) {
                                                         //Toast.makeText(Home.this, ""+clickItem.getName(),Toast.LENGTH_SHORT).show();
 
+
+
                                                         Intent restaurantDetail = new Intent(Home.this, RestaurantDetail.class);
                                                         restaurantDetail.putExtra("RestaurantId", adapter.getRef(position).getKey());
                                                         startActivity(restaurantDetail);
@@ -308,6 +310,7 @@ public class Home extends AppCompatActivity
 
         //set default name
         edtName.setText(item.getName());
+        edtAdminPhoneNumber.setText(item.getAdminPhoneNumber());
 
 
         //Event for button
