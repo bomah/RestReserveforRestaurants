@@ -82,6 +82,18 @@ public class RestaurantDetail extends AppCompatActivity  {
     TextView txtChoosenTime;
 
 
+    //
+    EditText edtChooseDate;
+
+    DatePickerDialog  datePickerDialog;
+
+    int year;
+    int month;
+    int dayOfMonth;
+
+    String dateRestaurantId;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -176,9 +188,36 @@ public class RestaurantDetail extends AppCompatActivity  {
         edtChooseTime=add_time_layout.findViewById(R.id.edtChooseTime);
         edtRestaurantId=add_time_layout.findViewById(R.id.restaurant_id);
 
+        //
+        edtChooseDate=add_time_layout.findViewById(R.id.edtChooseDate);
 
 
 
+        //
+        edtChooseDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                calendar = Calendar.getInstance();
+                year = calendar.get(Calendar.YEAR);
+                month = calendar.get(Calendar.MONTH);
+                dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+
+                datePickerDialog = new DatePickerDialog(RestaurantDetail.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                        edtChooseDate.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+
+
+                        newReservationSlot = new ReservationSlot(edtChooseDate.getText().toString(), edtChooseTime.getText().toString(),edtRestaurantId.getText().toString(),dateRestaurantId);
+                    }
+                }, year, month, dayOfMonth);
+                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
+                datePickerDialog.show();
+
+            }
+        });
 
 
 
@@ -206,10 +245,13 @@ public class RestaurantDetail extends AppCompatActivity  {
 
                         edtChooseTime.setText(String.format("%02d:%02d", hourOfDay, minute));
 
+                        dateRestaurantId= edtChooseDate.getText().toString()+ edtRestaurantId.getText().toString();
 
-                        newReservationSlot = new ReservationSlot(edtChooseTime.getText().toString(),edtRestaurantId.getText().toString());
+
+                       // newReservationSlot = new ReservationSlot(edtChooseTime.getText().toString(),edtRestaurantId.getText().toString());
 
 
+                        newReservationSlot = new ReservationSlot(edtChooseDate.getText().toString(), edtChooseTime.getText().toString(),edtRestaurantId.getText().toString(),dateRestaurantId);
 
 
 
@@ -226,9 +268,13 @@ public class RestaurantDetail extends AppCompatActivity  {
 
         edtRestaurantId.setText(currentRestId);
 
+        //
 
 
 
+
+
+       // newReservationSlot = new ReservationSlot(edtChooseDate.getText().toString(), edtChooseTime.getText().toString(),edtRestaurantId.getText().toString());
 
 
 
