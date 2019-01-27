@@ -7,19 +7,23 @@ public class ReservationSlot {
     private String time;
     private String restaurantId;
 
+
     //
     private String dateRestaurantId;
+
+    private int numberOfPeople;
 
     public ReservationSlot(){
 
     }
 
-    public ReservationSlot(String Date,String Time,String RestaurantId, String DateRestaurantId){
+    public ReservationSlot(String Date,String Time,String RestaurantId, String DateRestaurantId,int NumberOfPeople){
 
         setDate(Date);
         setTime(Time);
         setRestaurantId(RestaurantId);
         setDateRestaurantId(DateRestaurantId);
+        setNumberOfPeople(NumberOfPeople);
 
 
     }
@@ -60,5 +64,13 @@ public class ReservationSlot {
 
     public void setDateRestaurantId(String dateRestaurantId) {
         this.dateRestaurantId = dateRestaurantId;
+    }
+
+    public int getNumberOfPeople() {
+        return numberOfPeople;
+    }
+
+    public void setNumberOfPeople(int numberOfPeople) {
+        this.numberOfPeople = numberOfPeople;
     }
 }

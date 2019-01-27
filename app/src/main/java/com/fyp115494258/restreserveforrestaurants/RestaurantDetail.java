@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -94,6 +95,13 @@ public class RestaurantDetail extends AppCompatActivity  {
     String dateRestaurantId;
 
 
+    //People
+    TextView txtNumOfPeople;
+    CardView btnAddPeople;
+    CardView btnMinusPeople;
+    int peopleCount=2;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +125,9 @@ public class RestaurantDetail extends AppCompatActivity  {
                 addTimes();
             }
         });
+
+
+
 
 
 
@@ -192,6 +203,42 @@ public class RestaurantDetail extends AppCompatActivity  {
         edtChooseDate=add_time_layout.findViewById(R.id.edtChooseDate);
 
 
+        //People
+        txtNumOfPeople=add_time_layout.findViewById(R.id.txtNumOfPeople);
+        btnAddPeople=add_time_layout.findViewById(R.id.btnAddPeople);
+        btnMinusPeople=add_time_layout.findViewById(R.id.btnMinusPeople);
+
+
+
+       // txtNumOfPeople.setText(peopleCount);
+
+
+        btnAddPeople.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+
+                                                peopleCount++;
+                                                txtNumOfPeople.setText(String.valueOf(peopleCount).concat(" People"));
+
+                                            }
+                                        });
+
+
+        btnMinusPeople.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (peopleCount != 1) {
+                    peopleCount--;
+                    txtNumOfPeople.setText(String.valueOf(peopleCount).concat(" People"));
+                }
+                if (peopleCount == 1){
+                    txtNumOfPeople.setText(String.valueOf(peopleCount).concat(" Person"));
+                }
+
+            }
+        });
+
+
 
         //
         edtChooseDate.setOnClickListener(new View.OnClickListener() {
@@ -210,7 +257,7 @@ public class RestaurantDetail extends AppCompatActivity  {
                         edtChooseDate.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
 
 
-                        newReservationSlot = new ReservationSlot(edtChooseDate.getText().toString(), edtChooseTime.getText().toString(),edtRestaurantId.getText().toString(),dateRestaurantId);
+                        newReservationSlot = new ReservationSlot(edtChooseDate.getText().toString(), edtChooseTime.getText().toString(),edtRestaurantId.getText().toString(),dateRestaurantId,peopleCount);
                     }
                 }, year, month, dayOfMonth);
                 datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
@@ -251,7 +298,7 @@ public class RestaurantDetail extends AppCompatActivity  {
                        // newReservationSlot = new ReservationSlot(edtChooseTime.getText().toString(),edtRestaurantId.getText().toString());
 
 
-                        newReservationSlot = new ReservationSlot(edtChooseDate.getText().toString(), edtChooseTime.getText().toString(),edtRestaurantId.getText().toString(),dateRestaurantId);
+                        newReservationSlot = new ReservationSlot(edtChooseDate.getText().toString(), edtChooseTime.getText().toString(),edtRestaurantId.getText().toString(),dateRestaurantId,peopleCount);
 
 
 
