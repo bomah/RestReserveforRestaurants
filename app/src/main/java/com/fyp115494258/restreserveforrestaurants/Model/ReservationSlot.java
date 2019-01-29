@@ -3,6 +3,7 @@ package com.fyp115494258.restreserveforrestaurants.Model;
 public class ReservationSlot {
 
 
+
     private String date;
     private String time;
     private String restaurantId;
@@ -18,6 +19,7 @@ public class ReservationSlot {
     }
 
     public ReservationSlot(String Date,String Time,String RestaurantId, String DateRestaurantId,int NumberOfPeople){
+
 
         setDate(Date);
         setTime(Time);
@@ -42,13 +44,7 @@ public class ReservationSlot {
     }
 
 
-    public String getTime() {
-        return time;
-    }
 
-    public void setTime(String time) {
-        this.time = time;
-    }
 
     public String getDate() {
         return date;
@@ -72,5 +68,14 @@ public class ReservationSlot {
 
     public void setNumberOfPeople(int numberOfPeople) {
         this.numberOfPeople = numberOfPeople;
+    }
+
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

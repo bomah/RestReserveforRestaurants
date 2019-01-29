@@ -104,6 +104,9 @@ public class RestaurantDetail extends AppCompatActivity  {
     int peopleCount=2;
 
 
+    int timeInt;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -296,6 +299,9 @@ public class RestaurantDetail extends AppCompatActivity  {
 
                         dateRestaurantId= edtChooseDate.getText().toString()+ edtRestaurantId.getText().toString();
 
+                        //timeInt=hourOfDay
+
+
 
                        // newReservationSlot = new ReservationSlot(edtChooseTime.getText().toString(),edtRestaurantId.getText().toString());
 
@@ -345,6 +351,7 @@ public class RestaurantDetail extends AppCompatActivity  {
                 if(newReservationSlot!=null)
                 {
                     reservationSlot.push().setValue(newReservationSlot);
+
 
                 }
 
