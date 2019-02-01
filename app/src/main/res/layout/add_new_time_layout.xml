@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     app:cardElevation="4dp">
 
+    <!--Referred to the following: https://github.com/yanchummar/FlipTable/blob/master/FlipTable/app/src/main/res/layout/activity_booking.xml
+    -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

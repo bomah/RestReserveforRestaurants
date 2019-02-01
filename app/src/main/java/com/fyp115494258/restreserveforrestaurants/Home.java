@@ -135,6 +135,8 @@ public class Home extends AppCompatActivity
         layoutManager = new LinearLayoutManager(this);
         recycler_menu.setLayoutManager(layoutManager);
 
+
+
         //Get Intent here
 
         if (getIntent() != null)
@@ -178,6 +180,8 @@ public class Home extends AppCompatActivity
                 restaurant.orderByChild("adminPhoneNumber").equalTo(adminPhoneNo)) {
             @Override
             protected void populateViewHolder(RestaurantViewHolder viewHolder, Restaurant model, int position) {
+
+
 
 
                 viewHolder.txtRestaurantName.setText(model.getName());
@@ -257,7 +261,14 @@ public class Home extends AppCompatActivity
 
         if (id == R.id.nav_menu) {
             return true;
-        } else if (id == R.id.nav_logout) {
+        }else if (id == R.id.nav_reservations) {
+            Intent reservationList = new Intent(Home.this, ReservationList.class);
+            startActivity(reservationList);
+
+        }
+
+
+        else if (id == R.id.nav_logout) {
             Intent signIn =new Intent(Home.this,SignIn.class);
 
             signIn.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

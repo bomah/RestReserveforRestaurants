@@ -108,6 +108,8 @@ public class RestaurantDetail extends AppCompatActivity  {
 
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -182,6 +184,11 @@ public class RestaurantDetail extends AppCompatActivity  {
     /*Referred to the following video https://www.youtube.com/watch?v=4wyA7HDhIOA
     to enable me to setup the timepicker
 
+
+    //4th iteration
+    //Referred to the following video:https://www.youtube.com/watch?v=CNGLsYPZd_o
+        // to setup the date picker
+
     */
 
 
@@ -242,6 +249,7 @@ public class RestaurantDetail extends AppCompatActivity  {
 
             }
         });
+
 
 
 
@@ -328,6 +336,7 @@ public class RestaurantDetail extends AppCompatActivity  {
 
 
 
+        //newReservationSlot = new ReservationSlot(edtChooseDate.getText().toString(), edtChooseTime.getText().toString(),edtRestaurantId.getText().toString(),dateRestaurantId,peopleCount);
 
        // newReservationSlot = new ReservationSlot(edtChooseDate.getText().toString(), edtChooseTime.getText().toString(),edtRestaurantId.getText().toString());
 
@@ -350,7 +359,7 @@ public class RestaurantDetail extends AppCompatActivity  {
 
                 if(newReservationSlot!=null)
                 {
-                    reservationSlot.push().setValue(newReservationSlot);
+                    reservationSlot.push().setValue(new ReservationSlot(edtChooseDate.getText().toString(), edtChooseTime.getText().toString(),edtRestaurantId.getText().toString(),dateRestaurantId,peopleCount));
 
 
                 }
